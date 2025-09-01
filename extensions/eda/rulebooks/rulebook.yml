@@ -1,0 +1,20 @@
+---
+- name: Listen for OpenShift alerts
+  hosts: all
+  sources:
+    - ansible.eda.alertmanager:
+        host: 0.0.0.0
+        port: 5001
+  rules:
+    - name: "A node health check has failed"
+      condition: >
+        event.alert.status == "firing" and
+        (event.alert.labels.alertname == "NodeHealthCheckFailed" or event.alert.labels.alertname == "NFSStale") and
+        event.alert.labels.env is defined
+      actions:
+        - run_job_template:
+            name: reboot-problematic-node
+            organization: "Default"
+            job_args:
+              extra_vars:
+                payload: "{{ event.alert }}"
