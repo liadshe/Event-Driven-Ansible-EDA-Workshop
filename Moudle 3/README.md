@@ -144,7 +144,7 @@ Before creating the Rulebook Activation, you need to configure the Decision Envi
       ```
 
     2. Create a new credential of this type for your cluster(s):
-    * Navigate to `Authentication Execution` -> `Infrastructure` -> `Credential` -> `Create New`
+    * Navigate to `Automation Execution` -> `Infrastructure` -> `Credential` -> `Create New`
     * Name: `OCP Login Creds`
     * Credential: `OCP Login`
     * Type Details:
@@ -157,7 +157,7 @@ Before creating the Rulebook Activation, you need to configure the Decision Envi
 
 ### 3.6 Exercise: Creating the Project in AAP
 
-1.  Go to `Authentication Execution` -> `Projects` -> `Create project`.
+1.  Go to `Automation Execution` -> `Projects` -> `Create project`.
 2.  Name: `OpenShift Automations`.
 3.  Point to your forked Git repository URL and select your Git credentials.
 4.  Branch: `main`
@@ -166,7 +166,7 @@ Before creating the Rulebook Activation, you need to configure the Decision Envi
 
 ### 3.7 Exercise: Creating a project template in AAP
 
-1.  Go to `Authentication Execution` -> `Templates` -> `Create New`
+1.  Go to `Automation Execution` -> `Templates` -> `Create New`
 2.  Name: `reboot-problematic-node` # Same as referenced in the `run_job_template` in the rulebook
 3.  Inventory: `Demo Inventory` # Irrelevant because we are using `oc login` + `ocp api` as access method to our remote cluster based on the `env` from the alert
 4.  Credentials: `OCP Login Creds` # from 3.5. step 2
