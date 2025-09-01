@@ -114,7 +114,7 @@ Before creating the Rulebook Activation, you need to configure the Decision Envi
 
 **OpenShift Cluster Credential:**
 1. Create a new Credential Type for OpenShift (`openshift_api_url`, `openshift_token`):
-   * Navigate to `Authentication Execution` -> `Infrastructure` -> `Credential Types` -> `Create New`
+   * Navigate to `Automation Execution` -> `Infrastructure` -> `Credential Types` -> `Create New`
    * Name: `OCP Login`
 
    * Input configuration:
