@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rebooter-{{ problematic_node }}
+  namespace: openshift-monitoring
+spec:
+  serviceAccountName: aap-eda-sa
+  restartPolicy: Never
+  nodeName: "{{ problematic_node }}"
+  hostPID: true
+  hostNetwork: true
+  containers:
+    - name: "rebooter"
+      image: "registry.redhat.io/rhel8/support-tools"
+      command: ["/bin/bash", "-c"]
+      args:
+        - |
+          chroot /host /bin/bash -c "reboot"
+      securityContext:
+        privileged: true
